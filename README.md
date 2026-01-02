@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Mini Project React – User Management App
 
-## Getting Started
+## 📌 Deskripsi Project
+Mini Project ini merupakan aplikasi frontend berbasis React (Next.js) yang terintegrasi dengan Reqres Public API.  
+Aplikasi ini dibuat sebagai bagian dari assignment bootcamp Front End dan berfokus pada implementasi autentikasi, data fetching, routing, serta pengelolaan state menggunakan React Hooks.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack & Library
+Berikut daftar teknologi dan library yang digunakan dalam project ini:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- React.js (Next.js – Pages Router)
+- TypeScript
+- Tailwind CSS
+- React Toastify
+- Reqres Public API
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🔐 Fitur Utama
+Aplikasi ini memiliki fitur-fitur berikut:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- Register user
+- Login user
+- Menyimpan token autentikasi di localStorage
+- Protected route (halaman tertentu hanya bisa diakses setelah login)
+- Menampilkan daftar user dari API
+- Melihat detail tiap user
+- Pagination pada halaman daftar user
+- Logout
+- Desain responsive (desktop & mobile)
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 API Endpoint yang Digunakan
+Aplikasi menggunakan API dari Reqres dengan endpoint berikut:
 
-To learn more about Next.js, take a look at the following resources:
+- Register User
+- Login User
+- List Users
+- Single User
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+API Source:  
+https://reqres.in
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧪 Akun Testing
+Gunakan akun berikut untuk testing login:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Email** : eve.holt@reqres.in  
+- **Password** : cityslicka  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
