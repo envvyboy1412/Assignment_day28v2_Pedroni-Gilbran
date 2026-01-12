@@ -41,6 +41,10 @@ export default function UsersPage() {
     }
   }, [authorized, page]);
 
+  // useEffect(() => {
+  //   getUsers()
+  // },[page])
+
   const getUsers = async () => {
     setLoading(true);
     try {

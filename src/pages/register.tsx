@@ -18,6 +18,7 @@ export default function RegisterPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "pro_f8e12047372c3bdf414fe83a2eda7c7ecf0f924a9d3cc156",
         },
         body: JSON.stringify({ email, password }),
       });

@@ -66,7 +66,7 @@ export default function UserDetailPage() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <button
-        onClick={() => router.back()}
+        onClick={() => router.back()}//salah kemaren menggunakan router.back()
         className="mb-6 text-sm text-blue-600 hover:underline"
       >
         ← Back to Users

@@ -31,7 +31,7 @@ export default function LoginPage() {
 
       setTimeout(() => {
         router.push("/users");
-      }, 1500);
+      }, 2000);
     } else {
       toast.error(data.error || "Login gagal");
     }
@@ -84,7 +84,7 @@ export default function LoginPage() {
         <div className="text-center text-sm mt-4">
           Don't have an account?
           <Link
-            href="/register"
+            href="/register" 
             className="ml-1 font-semibold text-black hover:underline"
           >
             Sign up
