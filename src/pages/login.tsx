@@ -6,9 +6,11 @@ import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const submitLogin = async () => {
     setLoading(true);
@@ -17,8 +19,7 @@ export default function LoginPage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":
-          "pro_f8e12047372c3bdf414fe83a2eda7c7ecf0f924a9d3cc156",
+        "x-api-key": "pro_f8e12047372c3bdf414fe83a2eda7c7ecf0f924a9d3cc156",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -40,55 +41,88 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen bg-linear-to-br from-indigo-500 via-blue-500 to-cyan-400 flex items-center justify-center px-4">
       <ToastContainer theme="dark" />
 
-      <div className="border p-6 rounded-2xl w-90">
-        <h1 className="text-center text-black text-2xl py-4 font-extrabold">
-          Welcome Back
-        </h1>
+      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2">
+        {/* SISI KIRI - TEKS DAN TOMBOL*/}
+        <div className=" md:flex flex-col items-center justify-center bg-linear-to-br from-blue-500 to-indigo-500 text-white p-10">
+          <h2 className="text-3xl text-center font-extrabold mb-4">Welcome Back!</h2>
 
-        <p className="text-center text-black-50 p-4">
-          please enter your details to sign in
-        </p>
+          <p className="text-center font mb-6 text-sm opacity-90">
+            To keep connected with us please login with your personal info
+          </p>
 
-        <div className="my-4">
-          <p className="font-bold py-2">Email Address</p>
-          <input
-            placeholder="Enter Your Email"
-            className="border w-full mb-3 px-3 py-2 rounded-sm"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <a
+            href="/register"
+            className="hidden md:inline-block border  border-white px-8 py-2 rounded-full hover:bg-white hover:text-blue-500 transition"
+          >
+            SIGN UP
+          </a>
         </div>
 
-        <div className="my-4">
-          <p className="font-bold py-2">Password</p>
-          <input
-            type="password"
-            placeholder="Password"
-            className="border w-full mb-4 px-3 py-2 rounded-sm"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+        {/* SISI KANAN - FORM */}
+        <div className="p-8 md:p-12 ">
+          <h1 className="text-2xl font-extrabold text-center mb-2">Sign in</h1>
 
-        <div className="my-4">
+          <p className="text-center text-gray-500 text-sm mb-8">
+            Please enter your details to sign in
+          </p>
+
+          {/* EMAIL */}
+          <div className="mb-4">
+            <label className="block font-semibold mb-2">Email Address</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full border px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          {/* PASSWORD */}
+          <div className="mb-6">
+            <label className="block font-semibold mb-2">Password</label>
+
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                className="w-full border px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 group cursor-pointer">
+                <span onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? "🫣" : "🤔"}
+                </span>
+
+                <div className="absolute -top-8 right-1/2 translate-x-1/2 whitespace-nowrap bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                  {showPassword ? "Hide password" : "Show password"}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* BUTTON LOGIN */}
           <button
             onClick={submitLogin}
             disabled={loading}
-            className="cursor-pointer bg-black text-white w-full py-2"
+            className="w-full bg-blue-600 hover:bg-blue-800 text-white py-2 rounded-md font-semibold transition"
           >
-            {loading ? "Loading..." : "Sign In"}
+            {loading ? "Loading..." : "SIGN IN"}
           </button>
-        </div>
 
-        <div className="text-center text-sm mt-4">
-          Don't have an account?
-          <Link
-            href="/register" 
-            className="ml-1 font-semibold text-black hover:underline"
-          >
-            Sign up
-          </Link>
+          {/* HANYA TAMPIL DI MOBILE*/}
+          <p className="text-center text-sm mt-6 md:hidden">
+            Don't have an account?
+            <Link
+              href="/register"
+              className="ml-1 font-semibold text-blue-500 hover:underline"
+            >
+              Sign up
+            </Link>
+          </p>
         </div>
       </div>
     </div>
